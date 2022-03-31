@@ -1,0 +1,30 @@
+ {texts && texts.map((m,i) => 
+
+                <div style={{display:"felx"}} key={m._id}>
+
+                    {
+
+                        ((ChatUserDisplay(texts,m,i,loggedUser.id)) || isLastMessage(texts,i,loggedUser.id)) && (<Tooltip label={m.sender.name} hasArrow>
+
+                            <Avatar
+
+                            style={{backgroundColor:"white"}}
+
+                            mt="7px"
+                            mr={1}
+                            size="sm"
+                            cursor="pointer"
+                            name={m.sender.name}
+                            src={m.sender.dp} 
+                            />
+
+                        </Tooltip>)}
+
+                        <span style={{color:"whitesmoke",backgroundColor:m.sender._id === loggedUser.id?"black":"grey",borderRadius:"10px",padding:"5px 15px",maxWidth:"75%",marginLeft:isSameSenderMargin(texts,m,i,loggedUser.id),marginTop:isSameUser(texts,m,i,loggedUser.id)?3:10,}
+                    }>
+                            {m.content}
+                        </span>
+
+                </div>
+ 
+            )}
